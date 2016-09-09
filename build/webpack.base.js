@@ -19,27 +19,20 @@ module.exports = {
     filename: '[name].js',
     publicPath: './assets'
   },
-  resolve: {
-    extensions: ['', '.js', '.vue', '.css', '.json'],
-    alias: {
-      root: path.join(__dirname, '../client'),
-      components: path.join(__dirname, '../client/components')
-    }
-  },
   module: {
     loaders: [
-      {
-        test: /\.vue$/,
-        loaders: ['vue']
-      },
       {
         test: /\.js$/,
         loaders: ['babel'],
         exclude: [/node_modules/]
       },
       {
+        test: /\.scss/,
+        loaders: ['style','css','sass']
+      },
+      {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'url',
+        loaders: ['url'],
         query: {
           limit: 10000,
           name: '[name].[ext]?[hash]'
